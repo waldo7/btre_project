@@ -21,8 +21,12 @@ class ListingsView(generic.ListView):
         return Listing.objects.order_by("-list_date").filter(is_published=True)
 
 
-def listing(request, listing_id):
-    return render(request, "listings/listing.html")
+# def listing(request, listing_id):
+#     return render(request, "listings/listing.html")
+class ListingView(generic.DetailView):
+    model = Listing
+    template_name = "listings/listing.html"
+    context_object_name = "listing"
 
 
 def search(request):
