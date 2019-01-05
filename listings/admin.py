@@ -13,7 +13,7 @@ class ListingAdmin(admin.ModelAdmin):
     list_editable = ("is_published",)
     search_fields = ("title", "description", "address",
                      "city", "zipcode", "price")
-    list_per_page = 2
+    list_per_page = 25
 
 
 admin.site.register(Listing, ListingAdmin)
