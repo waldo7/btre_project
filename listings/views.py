@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 
+from .choices import price_choices, bedroom_choices, state_choices
 from .models import Listing
 
 # Create your views here.
@@ -30,4 +31,9 @@ class ListingView(generic.DetailView):
 
 
 def search(request):
-    return render(request, "listings/search.html")
+    context = {
+        "state_choices": state_choices,
+        "bedroom_choices": bedroom_choices,
+        "price_choices": price_choices
+    }
+    return render(request, "listings/search.html", context)
