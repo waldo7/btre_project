@@ -1,3 +1,4 @@
+from django.contrib.messages import constants as messages
 """
 Django settings for btre project.
 
@@ -131,5 +132,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "btre/static")
 ]
 
+# Media folder settings
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+
+# Messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
