@@ -3,6 +3,8 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
+from contacts.models import Contact
+
 # Create your views here.
 
 
@@ -64,4 +66,7 @@ def logout(request):
 
 @login_required()
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    contacts = Contact.objects.order_by(
+        '-contact_date').filter(user_id=request.user.id)
+
+    return render(request, 'accounts/dashboard.html', {"contacts": contacts})
