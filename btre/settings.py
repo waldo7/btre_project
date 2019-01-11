@@ -141,3 +141,10 @@ MEDIA_URL = "/media/"
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+# Email
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'waldo.ramones@gmail.com'
+EMAIL_HOST_PASSWORD = 'akhlaken780'
+EMAIL_USE_TLS = True
